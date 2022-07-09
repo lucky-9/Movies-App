@@ -1,0 +1,74 @@
+<div>
+
+  <!-- Table 1 -->
+
+  <div class="table-container">
+    <p class="text-center fs-1 text-primary">Animation</p>
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Movie Title</th>
+          <th scope="col">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="animatedMovieList?.length && !animatedMoviesLoading">
+          <tr *ngFor="let animatedMovie of animatedMovieList; let count = index;">
+            <td>{{count + 1}}</td>
+            <td>{{animatedMovie.title}}</td>
+            <td>{{animatedMovie.vote_average}}</td>
+          </tr>
+        </ng-container>
+        <ng-container *ngIf="animatedMoviesLoading">
+          <tr>
+            <td><ngx-skeleton-loader count="4" appearance="line"></ngx-skeleton-loader></td>
+            <td><ngx-skeleton-loader count="4" appearance="line"></ngx-skeleton-loader></td>
+            <td><ngx-skeleton-loader count="4" appearance="line"></ngx-skeleton-loader></td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <p class="text-danger" *ngIf="!animatedMoviesLoading && !animatedMovieList?.length">No Movies found for this genre...please click reload!</p>
+      <button class="btn btn-primary text-center" [disabled]="animatedMoviesLoading" (click)="getFilteredGenreMovies(16)">reload</button>
+    </div>
+  </div>
+
+
+
+  <!-- Table 2 -->
+
+  <div class="table-container">
+    <p class="text-center text-primary fs-1">Comedy</p>
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Movie Title</th>
+          <th scope="col">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="!comedyMoviesLoading && comedyMovieList.length">
+          <tr *ngFor="let comedyMovie of comedyMovieList; let count = index;">
+            <td>{{count + 1}}</td>
+            <td>{{comedyMovie.title}}</td>
+            <td>{{comedyMovie.vote_average}}</td>
+          </tr>
+        </ng-container>
+        <ng-container *ngIf="comedyMoviesLoading">
+          <tr>
+            <td><ngx-skeleton-loader count="4" appearance="line"></ngx-skeleton-loader></td>
+            <td><ngx-skeleton-loader count="4" appearance="line"></ngx-skeleton-loader></td>
+            <td><ngx-skeleton-loader count="4" appearance="line"></ngx-skeleton-loader></td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <p class="text-danger" *ngIf="!comedyMoviesLoading && !comedyMovieList.length">No Movies found for this genre...please click reload!</p>
+      <button class="btn btn-primary text-center" [disabled]="comedyMoviesLoading" (click)="getFilteredGenreMovies(35)">reload</button>
+    </div>
+  </div>
+</div>

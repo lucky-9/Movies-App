@@ -1,0 +1,10 @@
+.movie-card {
+  width: 20rem;
+  max-width: 100%;
+  margin: 10px;
+}
+
+
+.loader-container {
+  margin: 2rem 0;
+}
