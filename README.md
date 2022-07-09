@@ -1,4 +1,8 @@
 # MovieApp
+Live - https://movies-app-pi-ten.vercel.app/
+
+Pages: Home, Dashboard
+Features: API calling, filtering the movies based on genres, skeleton loaders
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
 
